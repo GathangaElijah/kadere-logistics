@@ -4,9 +4,20 @@
   --background: #ffffff;
   --foreground: #171717;
   /* Primary color */
-  --color-primary: #1a237e;
+ 
   /* Single app background: linear gradient between #2938C8 and #0D123F */
   --app-bg: linear-gradient(135deg, #2938c8 0%, #0d123f 100%);
+}
+
+@theme {
+  /* --color-*: initial; */
+  --color-primary: #1a237e;
+  --color-primary-900: #070920;
+  --color-primary-800: #0d123f;
+  --color-primary-700: #2938c8;
+  --color-primary-600: #6b75e0;
+  --color-primary-500: #b5baf0;
+  --color-accent: #7e751a;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,11 +27,13 @@
   }
 }
 
+html,
 body {
-  /* Use the single app background gradient */
-  background: var(--app-bg);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
 }
 
 /* Simple navbar styles */
