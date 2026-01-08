@@ -38,11 +38,14 @@ export default function RootLayout({
               <li>
                 <Link href="/services">Services</Link>
               </li>
+              <li>
+                <Link href="/patners">Patners</Link>
+              </li>
             </ul>
           </nav>
         </header>
 
-        <main>{children}</main>
+        <main className="w-full h-screen bg-primary flex">{children}</main>
       </body>
     </html>
   );
