@@ -3,7 +3,7 @@ import { Post } from '@nestjs/common';
 import { DriversService } from './drivers.service';
 import { DriverDto } from '../dto/driver.dto';
 
-@Controller('patners')
+@Controller('drivers')
 export class DriversController {
   constructor(private driversService: DriversService) {}
   @Post('register')
