@@ -1,14 +1,18 @@
 import { IsString } from 'class-validator';
+import { PrimaryGeneratedColumn } from 'typeorm';
 
 export class DriverDto {
+  @PrimaryGeneratedColumn()
+  id?: number;
+
+  @IsString()
+  username?: string;
+
   @IsString()
   firstName: string;
 
   @IsString()
   lastName?: string;
-
-  @IsString()
-  username?: string;
 
   @IsString()
   phone?: string;
