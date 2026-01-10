@@ -11,6 +11,7 @@ export class DriversService {
     private driversRepository: Repository<Driver>,
   ) {}
 
+  // Consider using the QueryQunner
   async registerDriver(driverData: DriverDto) {
     console.log(driverData);
     return await this.driversRepository.save(driverData);
