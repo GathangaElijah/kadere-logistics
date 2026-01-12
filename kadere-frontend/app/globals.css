@@ -1,12 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #f2f2f2;
   --foreground: #171717;
   /* Primary color */
  
-  /* Single app background: linear gradient between #2938C8 and #0D123F */
-  --app-bg: linear-gradient(135deg, #2938c8 0%, #0d123f 100%);
 }
 
 @theme {
@@ -31,6 +29,8 @@
   --color-accent-700: #5D0820;
   --color-accent-800: #380513;
   --color-accent-900: #130206;
+  /* breakpoints */
+  --breakpoint-xsm: 425px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -49,45 +49,6 @@ body {
   min-height: 100vh;
 }
 
-/* Simple navbar styles */
-.site-nav {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.75rem 1.25rem;
-  gap: 1rem;
-  box-sizing: border-box;
-  color: #fff;
-  /* Solid primary navbar to contrast with the page gradient */
-  background: var(--color-primary);
-}
-
-.site-nav .brand {
-  font-weight: 700;
-  letter-spacing: 0.2px;
-}
-
-.site-nav .nav-links {
-  display: flex;
-  gap: 1rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.site-nav .nav-links a {
-  color: #fff;
-  text-decoration: none;
-  padding: 0.5rem 0.75rem;
-  border-radius: 6px;
-  transition: background-color 150ms ease, transform 150ms ease;
-}
-
-.site-nav .nav-links a:hover {
-  background: rgba(255, 255, 255, 0.06);
-  transform: translateY(-1px);
-}
 
 @media (max-width: 640px) {
   .site-nav {

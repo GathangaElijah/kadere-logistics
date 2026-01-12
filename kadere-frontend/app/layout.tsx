@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Navbar from "./components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,27 +25,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <header>
-          <nav className="site-nav">
-            <div className="brand">Kadere</div>
-            <ul className="nav-links">
-              <li>
-                <Link href="/about">About</Link>
-              </li>
-              <li>
-                <Link href="/services">Services</Link>
-              </li>
-              <li>
-                <Link href="/patners">Patners</Link>
-              </li>
-            </ul>
-          </nav>
+          <Navbar />
         </header>
 
-        <main className="w-full h-screen bg-primary flex">{children}</main>
+        <main className="w-full h-screen bg-primary flex items-center">
+          {children}
+        </main>
       </body>
     </html>
   );
