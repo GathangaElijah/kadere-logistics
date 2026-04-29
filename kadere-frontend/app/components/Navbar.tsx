@@ -8,7 +8,7 @@ export default function Navbar() {
 
   return (
     <nav className="flex items-center justify-between p-4 bg-primary border-gray-200">
-      <div className="text-xl font-bold">KADERE</div>
+      <div className="text-xl font-bold">SokoTrans</div>
 
       {/* HAMBURGER BUTTON (Hidden > 425px) */}
       <button 
@@ -51,8 +51,9 @@ export default function Navbar() {
 
         <div className="flex flex-col gap-6 font-medium text-lg">
           <Link href="/" onClick={() => setIsOpen(false)}>Home</Link>
-          <Link href="/patners" onClick={() => setIsOpen(false)}>Patners</Link>
+          <Link href="/patners" onClick={() => setIsOpen(false)}>Account</Link>
           <Link href="/sevices" onClick={() => setIsOpen(false)}>Services</Link>
+          <Link href="/about" onClick={() => setIsOpen(false)}>About</Link>
         </div>
       </div>
     </nav>

@@ -1,12 +1,14 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TypeOrmModule } from '@nestjs/typeorm';
 import databaseConfig from './config/database.config';
 import { ConfigModule } from '@nestjs/config';
 import { DataSource } from 'typeorm';
-import { Driver } from './drivers/drivers.entity';
 import { DriversModule } from './drivers/drivers.module';
+import { AuthController } from './auth/auth.controller';
+import { AuthModule } from './auth/auth.module';
+import { PrismaService } from './prisma/prisma.service';
+import { PrismaModule } from './prisma/prisma.module';
 
 @Module({
   imports: [
@@ -15,26 +17,14 @@ import { DriversModule } from './drivers/drivers.module';
       cache: true,
       load: [databaseConfig],
     }),
-    TypeOrmModule.forRootAsync({
-      useFactory: () => {
-        const config = databaseConfig();
-        return {
-          type: 'postgres',
-          host: config.database.host,
-          port: config.database.port,
-          username: config.database.username,
-          password: config.database.password,
-          database: config.database.dbName,
-          entities: [Driver],
-          synchronize: true,
-        };
-      },
-    }),
+
     DriversModule,
+    AuthModule,
+    PrismaModule,
   ],
 
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, AuthController],
+  providers: [AppService, PrismaService],
 })
 export class AppModule {
   constructor(private dataSource: DataSource) {}
